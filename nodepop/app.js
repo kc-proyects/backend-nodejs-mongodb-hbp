@@ -10,10 +10,6 @@ app.set('view engine', 'ejs'); // Specify templates engine.
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.send('Servidor funcionando correctamente');
-});
-
-app.get('/home', homeController.home);
+app.get('/', homeController.home);
 
 export default app;

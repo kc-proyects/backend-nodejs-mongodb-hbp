@@ -24,13 +24,17 @@ body {
     margin: 0;
 }
 
+main,
+.header .container {
+    max-width: 60%;
+    margin: auto;
+}
+
 .header .container {
     display: flex;
     justify-content: space-between;
-    background-color: var(--col-bg-green);
+    background-color: var(--col-5);
     border-radius: 0 0 20px 20px;
-    max-width: 60%;
-    margin: auto;
     
     .custom-nav ul {
         list-style-type: none;
@@ -39,17 +43,9 @@ body {
     
     .custom-nav .item .btn {
         margin-right: 12px;
-    }
-    
-    .custom-nav .item .btn {
         text-decoration: none;
-        font-weight: bold;
-        color: var(--col-nav-link);
-        transition: color 0.8s ease;
+
     }
     
-    .custom-nav .item .btn:hover {
-        color: var(--col-markup);
-    }
-
+    .custom-nav .item .btn:hover { color: var(--col-markup); }
 }
