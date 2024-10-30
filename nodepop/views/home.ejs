@@ -1,3 +1,6 @@
-<h1>Esta es mi app: <%= appName %></h1>
-<p>¡Soy la plantilla de home!</p>
-<p>Este es un parámetro que he pasado: <%= param %></p>
+<%- include('header.ejs') %>
+    <%- include('navbar.ejs') %>
+    <h1>Esta es mi app: <%= appName %></h1>
+    <p>¡Soy la plantilla de home!</p>
+    <p>Este es un parámetro que he pasado: <%= param %></p>
+<%- include('footer.ejs') %>

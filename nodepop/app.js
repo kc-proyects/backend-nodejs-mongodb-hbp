@@ -8,6 +8,8 @@ app.locals.appName = 'NodePop';
 app.set('views', 'views'); // Specify views folder.
 app.set('view engine', 'ejs'); // Specify templates engine. 
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.send('Servidor funcionando correctamente');
 });
