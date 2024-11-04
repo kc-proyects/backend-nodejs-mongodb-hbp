@@ -24,28 +24,7 @@ body {
     margin: 0;
 }
 
-main,
-.header .container {
+main {
     max-width: 60%;
     margin: auto;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--col-5);
-    border-radius: 0 0 20px 20px;
-    
-    .custom-nav ul {
-        list-style-type: none;
-        display: flex;
-    }
-    
-    .custom-nav .item .btn {
-        margin-right: 12px;
-        text-decoration: none;
-
-    }
-    
-    .custom-nav .item .btn:hover { color: var(--col-markup); }
 }
