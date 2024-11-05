@@ -1,0 +1,23 @@
+{
+  "name": "backend-nodejs-mongodb-hbp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODEAPP_ENV=production node server.js",
+    "dev": "cross-env DEBUG=nodeapp:* NODEAPP_ENV=development nodemon server.js",
+    "initDB": "node initDB.js"
+  },
+  "author": "Héctor Benedicte",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cross-env": "^7.0.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.0",
+    "nodemon": "^3.1.7"
+  }
+}
