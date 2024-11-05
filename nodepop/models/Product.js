@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose'
 
 // products schema
 const productSchema = new Schema({
-  name: { type: String, unique: true },
+  name: String,
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   price: { type: Number },
   image: { type: String }, // path? base64?

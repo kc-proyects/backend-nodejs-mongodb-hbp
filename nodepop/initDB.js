@@ -1,6 +1,7 @@
 import readline from 'node:readline'
 import connectMongoose from './lib/connectMongoose.js'
-import Product from './models/Prodct.js'
+import Product from './models/Product.js'
+import User from './models/User.js'
 
 const connection = await connectMongoose()
 console.log('Connected to MongoDB:', connection.name)
@@ -11,7 +12,8 @@ if (questionResponse.toLowerCase() !== 'yes') {
   process.exit()
 }
 
-await initProducts()
+await initProducts();
+//await initUsers();
 
 connection.close()
 
@@ -21,12 +23,40 @@ async function initProducts() {
   console.log(`Deleted ${deleteResult.deletedCount} products.`)
 
   // create initial products
-  const insertResult = await Agent.insertMany([
-    { name: 'Smith', age: 31, owner: admin._id },
-    { name: 'Brown', age: 42, owner: admin._id },
-    { name: 'Jones', age: 23, owner: user1._id }
+  const insertResult = await Product.insertMany([
+    { 
+      name: 'Calculadora Casio', 
+      owner: '672a49eeecb6529b6ff8a899', // user._id
+      price: 34, 
+      image: '/images/product/672a4c711912e9293ce9063b/subida.jpg', 
+      tags: ['calculadora', 'operaciones', 'cálculo'] 
+    },
+    { 
+      name: 'Secador de pelo vintage', 
+      owner: '672a49eeecb6529b6ff8a899', 
+      price: 20, 
+      image: '/images/product/672a4c711912e9293ce9063b/subida.jpg', // product/{objectid}
+      tags: ['productos de aseo', 'baño'] 
+    }
   ])
-  console.log(`Created ${insertResult.length} agents.`)
+  console.log(`Created ${insertResult.length} products.`)
+}
+
+async function initUsers() {
+  const deleteResult = await User.deleteMany()
+  console.log(`Deleted ${deleteResult.deletedCount} users.`)
+
+  const insertResult = await User.insertMany([
+    { 
+      username: 'admin', 
+      emai: 'admin@nodepop.com', password: 'admin', profileImage: './public/images/userpic', roles: ['admin'] 
+    },
+    { 
+      username: 'hector', 
+      emai: 'hector@gmail.com', password: 'hector', profileImage: './public/images/userpic', roles: ['user'] 
+    }
+  ])
+  console.log(`Created ${insertResult.length} users.`)
 }
 
 function ask(questionText) {

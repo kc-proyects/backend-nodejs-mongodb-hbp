@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 mongoose.connection.on('error', err => {
   console.log('Error de conexión', err)

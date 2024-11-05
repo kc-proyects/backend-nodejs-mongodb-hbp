@@ -28,3 +28,12 @@ main {
     max-width: 60%;
     margin: auto;
 }
+
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    background-color: cadetblue;
+}
+
+footer p { margin: 0; }
