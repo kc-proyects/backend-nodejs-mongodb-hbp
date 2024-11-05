@@ -12,6 +12,7 @@ export async function product(req, res, next) {
 
   
     res.locals.productName = product.name;
+    res.locals.productDescription = product.description;
     res.locals.productPrice = product.price;
     res.locals.productOwner = product.owner;
     res.locals.productImage = product.image;

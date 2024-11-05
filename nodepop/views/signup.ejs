@@ -1,0 +1,29 @@
+<%- include('header.ejs') %>
+    <%- include('navbar.ejs') %>
+    <main id="signup">
+        <section>
+            <h1>Crear cuenta</h1>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="" class="form-label">Usuario</label>
+                    <input type="text" name="username" class="form-control" id="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Correo electrónico</label>
+                    <input type="text" name="email" class="form-control" id="" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="">
+                    <!-- TODO: pattern -->
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </section>
+    </main>
+<%- include('footer.ejs') %>
