@@ -29,6 +29,11 @@ main {
     margin: auto;
 }
 
+div#products-list {
+    display: flex;
+    gap: 40px;
+}
+
 footer {
     margin-top: 60px;
     padding: 20px;

@@ -4,20 +4,23 @@
         <section>
             <h1>Productos a la venta</h1>
             <div id="products-list" class="container row-cols-4 row-cols-md-4 g-4">
-                <div class="product container">
-                    <div class="card h-100">
-                        <img src="" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <% products.forEach(product => { %>
+                    <a href="/product/<%=product._id %>">
+                        <div class="product">
+                            <div class="card h-100">
+                                <img src="<%=product.image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= product.name %></h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">Last updated: 21/05/2024</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-body-secondary">Last updated: 21/05/2024</small>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                <% }) %>
             </div>
-            <p>Este es un parámetro que he pasado: <%= param %></p>
         </section>
     </main>
 <%- include('footer.ejs') %>
