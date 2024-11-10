@@ -3,24 +3,49 @@
     <main id="home">
         <section>
             <h1>Productos a la venta</h1>
-            <div id="products-list" class="container row-cols-4 row-cols-md-4 g-4">
-                <% products.forEach(product => { %>
-                    <a href="/product/<%=product._id %>" class="product-link">
-                        <div class="product">
-                            <div class="card h-100">
-                                <img src="<%=product.image %>" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= product.name %></h5>
-                                    <p class="card-text"><%=product.description %></p>
+            <% if (session.userId) { %>
+                <div id="products-list" class="container row-cols-4 row-cols-md-4 g-4">
+                    <% if (products.length !== 0) { %>
+                        <% products.forEach(product => { %>
+                            <div class="product">
+                                <div>
+                                    <a href="/product/delete/<%= product.id %>"><i class="bi bi-trash"></i></a>
                                 </div>
-                                <div class="card-footer">
-                                    <small class="text-body-secondary">Last updated: 21/05/2024</small>
-                                </div>
+                                <a href="/product/<%=product._id %>" class="product-link">
+                                    <div class="">
+                                        <div class="card h-100">
+                                            <img src="<%=product.image %>" class="card-img-top" alt="">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><%= product.name %></h5>
+                                                <p class="card-text"><%=product.description %></p>
+                                            </div>
+                                            <!-- <div class="card-footer">
+                                                <small class="text-body-secondary">Last updated: 21/05/2024</small>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
+                    <% }) %>
+                    <% } else { %>
+                        <div class="alert alert-primary align-items-center" role="alert">
+                            <h4 class="alert-heading">¡Todavía no tienes productos!</h4>
+                            <p>¿A que esperas para crear uno?</p>
                         </div>
-                    </a>
-                <% }) %>
-            </div>
+                    <% } %>
+
+                </div>
+            <% } else { %>
+                <div class="alert alert-primary align-items-center" role="alert">
+                    <h4 class="alert-heading">¡Bienvenido a nodepop!</h4>
+                    <p>Inicia sesión para ver todos los productos de segunda mano publicados por los usuarios.</p>
+                    <hr>
+                    <p class="mb-0">Los usuarios con el rol 'admin' verán y podrán borrar todos los productos.</p>
+                    <p>admin@nodepop.com | admin</p>
+                    <p class="mb-0">Los usuarios con el rol 'user' verán y podrán borrar sólo sus productos.</p>
+                    <p>hector@gmail.com | hector</p>
+                </div>
+            <% } %>
         </section>
     </main>
 <%- include('footer.ejs') %>
